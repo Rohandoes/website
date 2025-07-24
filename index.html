@@ -3,166 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birthday Wish For My Precious</title>
+    <title>My Personal Website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f3edef; 
-            color: #333; 
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
             text-align: center;
         }
-        .countdown-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh; 
-            background: #ffffff; 
-            color: #333; 
-            font-size: 2em;
-            font-weight: bold;
-            position: relative;
-            z-index: 1000;
-            border-bottom: 0px solid #f3edef;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        nav ul {
+            padding: 0;
+            list-style: none;
+            text-align: center;
         }
-        #countdown-message {
-            color: #666; 
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
         }
-        .countdown-message {
-            font-size: 3em;
-            color: #ff66b2;
-            margin: 0;
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
         }
         .container {
-            padding: 30px;
-            background-color: #f3edef;
-            border-radius: 60px;
-            max-width: 600px;
-            margin: 50px auto; 
-            box-shadow: 0 5px 10px rgba(0.1, 0.1, 0.1, 0.1);
-            display: none; 
-            opacity: 0; 
-            transform: translateY(20px);
-            animation: fadeInUp 1s forwards;
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
         }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        h1 {
-            color: #ff66b2;
-        }
-        p {
-            font-size: 1.2em;
-        }
-        .message {
-            background-color: #ffe6f2;
-            border: 2px solid #ff66b2;
-            border-radius: 10px;
+        #about, #portfolio, #contact {
             padding: 20px;
             margin: 20px 0;
-        }
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 1em;
-            color: #ffffff;
-            background-color: #ff66b2;
-            border: none;
+            background: #fff;
             border-radius: 5px;
-            text-decoration: none;
-            margin-top: 20px;
         }
-        .button:hover {
-            background-color: #ff3385;
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #333;
+            color: #fff;
         }
-        #fireworks {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 999;
+        #clock {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="countdown-container" id="countdown">
-        <div id="countdown-message">Loading countdown...</div>
+    <header>
+        <div id="clock"></div>
+        <h1>Welcome to Rohan's Personal Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hi! I'm Rohan. I just bult this. This website showcases my work, interests, and ways to connect with me.</p>
+        </section>
+
+        <section id="portfolio">
+            <h2>Portfolio</h2>
+            <p>Here's a collection of my recent projects and achievements:</p>
+            <ul>
+                <li>Project 1: Will be done soon</li>
+                
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Feel free to reach out to me at rohandoes@gmail.com or follow me on <a href="https://www.facebook.com/zobairulhasan" target="_blank">Facebook</a>.</p>
+        </section>
     </div>
 
-    <div class="container" id="content">
-        <h1>Happy Birthday Authoy &#10084</h1>
-        <div class="message">
-            <p>It's been almost five months since we first met, and your presence in my life has become very precious and meaningful. Who could have knew that, despite failing in 230, I would find something that truly adds value to my life? Thanks for choosing me.</p>
-            <p>Since it becoming more like a gratitute letter than a birthday wish let's focus on the fact that it's finally 28th July!! A Happiest Birthday to my Lokkhi. Though it's your birthday, I'm the one who received the best gift by having you in my life .</p>
-            <p>I wanna remind you once again how incredibly special you are to me. Your make every day brighter and more joyful. I am so grateful for every moment we shared, and I can't wait to create even more amazing memories with you. You deserve all the happiness in the world, today and always.</p>
-            <p>Happy Birthday Authoy<3</p>
-        </div>
-    </div>
-
-
-    <canvas id="fireworks"></canvas>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.0.0/dist/fireworks.min.js"></script>
+    <footer>
+        <p>&copy; 2024 Md. Zobairul Hasan All rights reserved.</p>
+    </footer>
 
     <script>
-        function updateCountdown() {
-            const countdownDate = new Date('2024-07-28T01:03:00').getTime();
-            const now = new Date().getTime();
-            const distance = countdownDate - now;
+        function showTime() {
+            var date = new Date();
+            var h = date.getHours(); 
+            var m = date.getMinutes(); 
+            var s = date.getSeconds(); 
+            var session = "AM";
             
-            if (distance < 0) {
-                document.getElementById('countdown-message').innerHTML = "It's 28th July!";
-                document.getElementById('countdown-message').style.fontSize = '3em'; 
-                document.getElementById('countdown-message').style.fontWeight = 'bold';
-                document.getElementById('countdown').style.background = 'none';
-                document.getElementById('countdown').style.color = '#ff66b2'; 
-                document.getElementById('countdown').style.textShadow = 'none';
-                document.getElementById('content').style.display = 'block';
-                startFireworks();
-                return;
+            if(h == 0){
+                h = 12;
             }
             
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            if(h > 12){
+                h = h - 12;
+                session = "PM";
+            }
             
-            document.getElementById('countdown-message').innerHTML =
-                days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+            
+            var time = h + ":" + m + ":" + s + " " + session;
+            document.getElementById("clock").innerText = time;
+            document.getElementById("clock").textContent = time;
+            
+            setTimeout(showTime, 1000);
         }
         
-        function startFireworks() {
-            const canvas = document.getElementById('fireworks');
-            const fireworks = new Fireworks(canvas, {
-                speed: 2,
-                acceleration: 1.05,
-                friction: 0.98,
-                particles: 150,
-                duration: 1000,
-                opacity: 0.8,
-                colors: ['#ff66b2', '#ff3385', '#ffccff']
-            });
-            fireworks.start();
-        }
-
-
-        setInterval(updateCountdown, 1000);
-        
-
-        updateCountdown();
+        showTime();
     </script>
 </body>
 </html>
